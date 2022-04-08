@@ -15,9 +15,16 @@ config = Config('.env')
 STREAM_API_SECRET = Config('STREAM_API_SECRET')  # str
 
 app = Flask(__name__)
-@app.route('/firebase', methods=["GET", "POST"])
+@app.route('/', methods=["GET", "POST"])
 def home():
+    return {
+        'status': 200,
+        'details' : 'Use /firebase?name=NAME&uid=UID, only UID is required',
+        'example' : 'https://riltopia-admin.herokuapp.com/firebase?uid=325245&name=idan'
+    }
 
+@app.route('/firebase', methods=["GET", "POST"])
+def firebase():
     # example: http://127.0.0.1:5000/firebase?uid=325245&name=idan
     # heroku: https://riltopia-admin.herokuapp.com/firebase?uid=325245&name=idan
     print('Start:')
@@ -36,6 +43,7 @@ def home():
     # return render_template("base.html")
     return {
         'status' : 200,
+        'details' : 'get stream token success',
         'get_api_call_at' : f'{now}',
         'firebase_uid' : f'{uid}',
         'firebase_name' : f'{name}',
