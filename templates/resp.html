@@ -1,0 +1,65 @@
+<!--<html Lang="en">-->
+<!--<head>-->
+<!--    <meta charset= "UTF-8">-->
+<!--    <title>Welcome</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>name {{name}}</h1>-->
+<!--    <h1>resp {{resp}}</h1>-->
+<!--<body/>-->
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>תמונת מצב</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css'>
+
+<style>
+    div.solid_round10 {
+      border: 1px solid gainsboro;
+      border-radius: 8px;
+    }
+</style>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container" dir="rtl">
+
+  <br>
+  <br>
+  <br>
+
+  <h2>ניהול אפליקציית Spider3D</h2>
+  <h5>סטטוס מצב:</h5>
+<!--  <h6>- מוצר/ קטגוריה: יש להקליד product / category כדי לבחור לאן תוביל התמונה.</h6>-->
+
+<!--  <h6 style="font-size:15px; color:DimGrey">{{name}}</h6>-->
+  <h6 style="font-size:15px; color:DimGrey">{{resp}}</h6>
+  <h6 style="font-size:15px; color:DimGrey">Live config file in <a href="https://config-fluxstore-mauve.vercel.app">https://config-fluxstore-mauve.vercel.app</a></h6>
+
+<!--    <h2>ניהול אפליקציית Spider3D</h2>-->
+  <br>
+  <h5>כעת  יש לעדכן את הקאצ׳ בוורדפרס ב4 שלבים: </h5>
+  <br>
+  <h6>1. להוריד את הקובץ, לחלץ את הZip ולמחוק את הקובץ config_he.json</h6>
+    <a href="https://github.com/idan054/Spider3DFlux/archive/refs/heads/main.zip" download>
+  <img src="data:image/jpeg;base64,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" alt="W3Schools" width="150" height="60">
+</a>
+  <h6>2. לשנות את שם הקובץ index.json אל config_he.json </h6>
+  <h6>3. להיכנס לפאנל הניהול של וורדפרס, ולמצוא את Mstore Api בתפריט הצידי </h6>
+  <img src="https://i.imgur.com/3zP0olv.png" alt="Description for image" width="600" height="300">
+  <h6>4. למחוק את הקובץ הקיים, להעלות את הקובץ החדש וללחוץ על שמור! </h6>
+  <br>
+  <h6 style="font-size:15px; color:DimGrey"></h6>
+
+
+<!--  <h6 style="font-size:15px; color:DimGrey"><a href="https://imgur.com/ldOfYS4.png">דוגמא למילוי הפאנל ניהול.</a> </h6>-->
+  <br>
+
+</body>
+</html>
+
+
+
