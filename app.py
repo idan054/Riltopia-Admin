@@ -2,13 +2,14 @@ from flask import Flask, render_template, request
 import stream_chat
 from datetime import datetime
 import os
-from dotenv import load_dotenv
+from dotenv_config import Config
+
 
 # current date and time
 now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
-load_dotenv()
-STREAM_API_SECRET = os.getenv('STREAM_API_SECRET')
+config = Config('.env')
+STREAM_API_SECRET = Config('STREAM_API_SECRET')  # str
 
 app = Flask(__name__)
 @app.route('/firebase', methods=["GET", "POST"])
