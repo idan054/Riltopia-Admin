@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request
 import stream_chat
 from datetime import datetime
-import os
 from dotenv_config import Config
 
+### HOW TO CREATE NEW HEROKU PROJECT! ###
+#1 Fork this repo: https://github.com/idan054/Riltopia-Admin/tree/ad39fd314792d7192d7c78d31030b046f31f3161
+#2 Create heroku app > Deploy tab > connect github > click deploy.
+# * U might need to run $ heroku login && heroku restart
 
 # current date and time
 now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
@@ -16,6 +19,7 @@ app = Flask(__name__)
 def home():
 
     # example: http://127.0.0.1:5000/firebase?uid=325245&name=idan
+    # heroku: https://riltopia-admin.herokuapp.com/firebase?uid=325245&name=idan
     print('Start:')
     args = request.args
     uid = args.get('uid')
@@ -31,6 +35,7 @@ def home():
 
     # return render_template("base.html")
     return {
+        'status' : 200,
         'get_api_call_at' : f'{now}',
         'firebase_uid' : f'{uid}',
         'firebase_name' : f'{name}',
