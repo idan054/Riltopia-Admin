@@ -11,8 +11,9 @@ from dotenv_config import Config
 # current date and time
 now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
-config = Config('.env')
-STREAM_API_SECRET = Config('STREAM_API_SECRET')  # str
+# Config = Config('.env')
+# <dotenv_config.Config object at 0x000001BFCDFEF9A0> # Not str(?)
+STREAM_API_SECRET = Config('STREAM_API_SECRET')
 
 app = Flask(__name__)
 @app.route('/', methods=["GET", "POST"])
@@ -35,7 +36,8 @@ def firebase():
 
     server_client = stream_chat\
         .StreamChat(api_key="ah48ckptkjvm",
-                    api_secret=f"{STREAM_API_SECRET}")
+                    # api_secret=f"{STREAM_API_SECRET}")
+                    api_secret=f"gfcfa94ghkctn3du36s2d4nmqg9q24wtxhr56qd84pj7dum94ahhtedccj8q7wk4")
 
     token = server_client.create_token(f'{uid}')
     print(f'token {token}')
@@ -44,8 +46,8 @@ def firebase():
     return {
         'status' : 201,
         'details' : 'get stream token success',
-        'deleteMe_key': 'ah48ckptkjvm',
-        'deleteMe_Secret': f'{STREAM_API_SECRET}',
+        # 'deleteMe_key': 'ah48ckptkjvm',
+        # 'deleteMe_Secret': f'{STREAM_API_SECRET}',
         'get_api_call_at' : f'{now}',
         'firebase_uid' : f'{uid}',
         'firebase_name' : f'{name}',
