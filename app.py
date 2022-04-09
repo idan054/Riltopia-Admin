@@ -45,10 +45,10 @@ def firebase():
 
     # return render_template("base.html")
     return {
-        'status' : 201,
+        'status' : 200,
         'details' : 'get stream token success',
-        # 'deleteMe_key': 'ah48ckptkjvm',
-        # 'deleteMe_Secret': f'{STREAM_API_SECRET}',
+        'deleteMe_key': 'ah48ckptkjvm',
+        'deleteMe_Secret': f'{STREAM_API_SECRET}',
         'get_api_call_at' : f'{now}',
         'firebase_uid' : f'{uid}',
         'firebase_name' : f'{name}',
