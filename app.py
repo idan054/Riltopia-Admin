@@ -13,7 +13,8 @@ now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
 # Config = Config('.env')
 # <dotenv_config.Config object at 0x000001BFCDFEF9A0> # Not str(?)
-STREAM_API_SECRET = Config('STREAM_API_SECRET')
+# STREAM_API_SECRET = Config('STREAM_API_SECRET')
+STREAM_API_SECRET = 'gfcfa94ghkctn3du36s2d4nmqg9q24wtxhr56qd84pj7dum94ahhtedccj8q7wk4'
 
 app = Flask(__name__)
 @app.route('/', methods=["GET", "POST"])
@@ -37,7 +38,7 @@ def firebase():
     server_client = stream_chat\
         .StreamChat(api_key="ah48ckptkjvm",
                     # api_secret=f"{STREAM_API_SECRET}")
-                    api_secret=f"gfcfa94ghkctn3du36s2d4nmqg9q24wtxhr56qd84pj7dum94ahhtedccj8q7wk4")
+                    api_secret=f"{STREAM_API_SECRET}")
 
     token = server_client.create_token(f'{uid}')
     print(f'token {token}')
